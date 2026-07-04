@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Zeiyn — personal site</title>
+  <meta name="description" content="The personal website of Zeiyn — projects, writing, and ways to get in touch." />
+  <link rel="canonical" href="https://zeiyn.com/" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="zeiyn.com" />
+  <meta property="og:title" content="Zeiyn — personal site" />
+  <meta property="og:description" content="Projects, writing, and ways to get in touch." />
+  <meta property="og:url" content="https://zeiyn.com/" />
+  <meta property="og:image" content="https://zeiyn.com/assets/og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Icons -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts (degrade to system fonts if blocked) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://zeiyn.com/",
+    "name": "zeiyn.com",
+    "author": { "@type": "Person", "name": "Zeiyn", "url": "https://zeiyn.com/about.html" }
+  }
+  </script>
+
+  <!-- Apply saved theme before first paint (avoids a flash) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="grid">
+    <!-- ================= HEADER / NAV (shared across pages) ============== -->
+    <header>
+      <div class="brand">
+        <p class="eyebrow">zeiyn.com</p>
+        <!-- TODO: replace with your own greeting -->
+        <h1>Hi, I&rsquo;m <span class="accent">Zeiyn</span>.</h1>
+        <!-- TODO: replace with a one-line description of who you are -->
+        <p class="lede">I build things for the web and write about what I learn along the way.</p>
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <a class="home" href="/" aria-current="page" aria-label="Home">&#9679;</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/writing.html">Writing</a>
+        <button class="theme-toggle" type="button">Theme</button>
+      </nav>
+    </header>
+
+    <!-- ================= MAIN ============================================ -->
+    <main id="main">
+
+      <!-- ---- Selected work (preview of Projects) ---- -->
+      <section aria-labelledby="work-h">
+        <div class="section-head">
+          <h2 id="work-h">Selected work</h2>
+          <a class="more" href="/projects.html">All projects &rarr;</a>
+        </div>
+
+        <div class="projects">
+          <!-- TODO: replace each project below with your own -->
+          <article class="project">
+            <h3><a href="#" rel="noopener">Project One</a></h3>
+            <p>A one-line description of what it is and why it&rsquo;s worth a look.</p>
+            <p class="meta">2025 &middot; Web</p>
+          </article>
+
+          <article class="project">
+            <h3><a href="#" rel="noopener">Project Two</a></h3>
+            <p>What you built, the problem it solves, or the idea behind it.</p>
+            <p class="meta">2024 &middot; Data</p>
+          </article>
+
+          <article class="project">
+            <h3><a href="#" rel="noopener">Project Three</a></h3>
+            <p>Keep these short &mdash; a single clear sentence reads best.</p>
+            <p class="meta">2023 &middot; Tool</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ---- Recent writing (preview of Writing) ---- -->
+      <section aria-labelledby="writing-h">
+        <div class="section-head">
+          <h2 id="writing-h">Recent writing</h2>
+          <a class="more" href="/writing.html">All writing &rarr;</a>
+        </div>
+
+        <div class="posts">
+          <!-- TODO: replace each entry; point real posts at files in /posts/ -->
+          <article class="post">
+            <time datetime="2026-07-01">Jul 2026</time>
+            <div>
+              <h3><a href="/posts/hello-world.html">Hello, world</a></h3>
+              <p>The first note on this site &mdash; why it exists and what I plan to write about.</p>
+            </div>
+          </article>
+
+          <article class="post">
+            <time datetime="2026-05-12">May 2026</time>
+            <div>
+              <h3><a href="#">A second post title</a></h3>
+              <p>A one- or two-line excerpt that tells the reader what this piece is about.</p>
+            </div>
+          </article>
+
+          <article class="post">
+            <time datetime="2026-03-03">Mar 2026</time>
+            <div>
+              <h3><a href="#">A third post title</a></h3>
+              <p>Another excerpt. Dates are in the leftmost column on wider screens.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ================= FOOTER (shared across pages) ==================== -->
+    <footer>
+      <div class="contact">
+        <h2>Get in touch</h2>
+        <!-- TODO: replace with your real links / handles -->
+        <ul class="social">
+          <li><a href="mailto:you@zeiyn.com">Email</a></li>
+          <li><a href="https://github.com/" rel="me noopener">GitHub</a></li>
+          <li><a href="https://x.com/" rel="me noopener">X</a></li>
+          <li><a href="https://www.linkedin.com/" rel="me noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="colophon">
+        <span>&copy; <span data-year>2026</span> Zeiyn</span>
+        <span>Built by hand &middot; hosted on zeiyn.com</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>

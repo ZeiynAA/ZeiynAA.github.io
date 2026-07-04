@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Writing — Zeiyn</title>
+  <meta name="description" content="Notes and essays by Zeiyn." />
+  <link rel="canonical" href="https://zeiyn.com/writing.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="zeiyn.com" />
+  <meta property="og:title" content="Writing — Zeiyn" />
+  <meta property="og:description" content="Notes and essays." />
+  <meta property="og:url" content="https://zeiyn.com/writing.html" />
+  <meta property="og:image" content="https://zeiyn.com/assets/og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="grid">
+    <header>
+      <div class="brand">
+        <p class="eyebrow">Writing</p>
+        <h1>Notes &amp; essays.</h1>
+        <p class="lede">Occasional posts about things I&rsquo;m building, reading, or thinking about.</p>
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <a class="home" href="/" aria-label="Home">&#9679;</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/writing.html" aria-current="page">Writing</a>
+        <button class="theme-toggle" type="button">Theme</button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section aria-labelledby="all-writing-h">
+        <div class="section-head">
+          <h2 id="all-writing-h">All writing</h2>
+        </div>
+
+        <div class="posts">
+          <!-- TODO: each new post is a file in /posts/. Copy hello-world.html as a template. -->
+          <article class="post">
+            <time datetime="2026-07-01">Jul 2026</time>
+            <div>
+              <h3><a href="/posts/hello-world.html">Hello, world</a></h3>
+              <p>The first note on this site &mdash; why it exists and what I plan to write about.</p>
+            </div>
+          </article>
+
+          <article class="post">
+            <time datetime="2026-05-12">May 2026</time>
+            <div>
+              <h3><a href="#">A second post title</a></h3>
+              <p>A one- or two-line excerpt that tells the reader what this piece is about.</p>
+            </div>
+          </article>
+
+          <article class="post">
+            <time datetime="2026-03-03">Mar 2026</time>
+            <div>
+              <h3><a href="#">A third post title</a></h3>
+              <p>Another excerpt. Keep them short and specific.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="contact">
+        <h2>Get in touch</h2>
+        <ul class="social">
+          <li><a href="mailto:you@zeiyn.com">Email</a></li>
+          <li><a href="https://github.com/" rel="me noopener">GitHub</a></li>
+          <li><a href="https://x.com/" rel="me noopener">X</a></li>
+          <li><a href="https://www.linkedin.com/" rel="me noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="colophon">
+        <span>&copy; <span data-year>2026</span> Zeiyn</span>
+        <span>Built by hand &middot; hosted on zeiyn.com</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>

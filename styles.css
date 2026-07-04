@@ -1,0 +1,494 @@
+/* =========================================================================
+   zeiyn.com — monochrome personal site
+   Design inspired by zidhuss.tech: letterbox card, 6-col grid, vertical nav,
+   highlighter hover. Rendered here in a pure black / white / grey palette.
+   All visual constants live in :root so the whole system retunes in one place.
+   ========================================================================= */
+
+/* ----- Design tokens -------------------------------------------------- */
+:root,
+:root[data-theme="light"] {
+  --bg:        #ffffff;   /* content card */
+  --surround:  #17181a;   /* dark letterbox around the card (desktop only) */
+  --fg:        #111111;   /* near-black text */
+  --fg-dim:    rgba(17, 17, 17, 0.56);
+  --fg-faint:  rgba(17, 17, 17, 0.30);
+  --hover:     rgba(17, 17, 17, 0.07);   /* highlighter swipe */
+  --line:      rgba(17, 17, 17, 0.13);   /* hairlines */
+  --focus:     #111111;
+
+  --font-sans: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+               "Liberation Mono", monospace;
+
+  --unit: 0.5rem;                         /* 8px rhythm base */
+  --measure: 62ch;                        /* readable line length */
+  --radius: 6px;
+  --max-width: 1180px;
+  --bleed: 14px;                          /* card colour bleed past the body */
+
+  color-scheme: light;
+}
+
+/* Dark tokens — applied on OS preference (unless user forced light) … */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #0e0f10;
+    --surround:  #000000;
+    --fg:        #f1f1f0;
+    --fg-dim:    rgba(241, 241, 240, 0.56);
+    --fg-faint:  rgba(241, 241, 240, 0.30);
+    --hover:     rgba(241, 241, 240, 0.09);
+    --line:      rgba(241, 241, 240, 0.15);
+    --focus:     #f1f1f0;
+    color-scheme: dark;
+  }
+}
+/* … or when the user explicitly toggles dark. */
+:root[data-theme="dark"] {
+  --bg:        #0e0f10;
+  --surround:  #000000;
+  --fg:        #f1f1f0;
+  --fg-dim:    rgba(241, 241, 240, 0.56);
+  --fg-faint:  rgba(241, 241, 240, 0.30);
+  --hover:     rgba(241, 241, 240, 0.09);
+  --line:      rgba(241, 241, 240, 0.15);
+  --focus:     #f1f1f0;
+  color-scheme: dark;
+}
+
+/* ----- Reset ---------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--surround);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  max-width: var(--max-width);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 5rem) clamp(1.25rem, 6vw, 5.5rem);
+  /* the letterbox: a thin card-coloured bleed, then the dark surround */
+  box-shadow: 0 0 0 var(--bleed) var(--bg);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; }
+
+::selection { background: var(--fg); color: var(--bg); }
+
+/* ----- Skip link ------------------------------------------------------ */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius);
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+.skip:focus { left: 1rem; top: 1rem; }
+
+/* ----- Layout grid ---------------------------------------------------- */
+.grid {
+  display: grid;
+  /* minmax(0, …) lets tracks shrink below their content's min-size, so long
+     words / URLs can never force the page into horizontal overflow */
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: clamp(1rem, 3vw, 2.5rem);
+  row-gap: clamp(3rem, 7vw, 5.5rem);
+}
+
+/* every grid/subgrid child may shrink past its intrinsic min-content width */
+.grid > *,
+main > *,
+header > *,
+footer > *,
+.projects > *,
+.post > * { min-width: 0; }
+
+/* ----- Header + nav --------------------------------------------------- */
+header {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: start;
+  padding-top: clamp(1rem, 4vw, 3.5rem);
+}
+
+.brand { grid-column: 1 / span 4; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: 1.1rem;
+}
+
+h1 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+h1 .accent { color: var(--fg); }
+
+.brand .lede {
+  margin-top: 1.5rem;
+  max-width: 42ch;
+  color: var(--fg-dim);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+}
+
+/* vertical nav — the ● home dot + text links */
+nav.menu {
+  grid-column: 5 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding-top: 0.4rem;
+}
+nav.menu a {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  text-decoration: none;
+  color: var(--fg-faint);
+  transition: color 0.15s ease;
+}
+nav.menu a.home { font-size: 1.4rem; margin-bottom: 0.2rem; }
+nav.menu a:hover,
+nav.menu a:focus-visible { color: var(--fg); }
+nav.menu a[aria-current="page"] { color: var(--fg); }
+nav.menu a[aria-current="page"]::after {
+  content: "";
+  display: inline-block;
+  width: 0.4rem; height: 0.4rem;
+  margin-left: 0.55rem;
+  border-radius: 50%;
+  background: var(--fg);
+  vertical-align: middle;
+}
+
+/* theme toggle sits at the foot of the menu */
+.theme-toggle {
+  margin-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible { color: var(--fg); border-color: var(--fg-dim); }
+
+/* ----- Main + sections ------------------------------------------------ */
+main {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  row-gap: clamp(3rem, 7vw, 5.5rem);
+}
+
+section { grid-column: 1 / -1; }
+
+.section-head {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.6rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+h2 {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+.section-head .more {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--fg-dim);
+  text-decoration: none;
+}
+.section-head .more:hover,
+.section-head .more:focus-visible { color: var(--fg); }
+
+/* prose blocks (about, posts) */
+.prose { max-width: var(--measure); }
+.prose p { margin-bottom: 1.4rem; }
+.prose h3 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  margin: 2.4rem 0 0.8rem;
+}
+.prose a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--fg-faint);
+}
+.prose a:hover { text-decoration-color: var(--fg); }
+.prose ul { margin: 0 0 1.4rem 1.1rem; }
+.prose li { margin-bottom: 0.5rem; }
+.prose blockquote {
+  border-left: 2px solid var(--line);
+  padding-left: 1.1rem;
+  margin: 1.6rem 0;
+  color: var(--fg-dim);
+  font-style: italic;
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--hover);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* ----- Projects ------------------------------------------------------- */
+.projects {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  row-gap: 2.5rem;
+}
+.project { grid-column: span 3; }
+.project h3 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+/* highlighter hover on heading links */
+.project h3 a,
+.post h3 a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.05em 0.3em;
+  margin: 0 -0.3em;
+  border-radius: var(--radius);
+  transition: background-color 0.15s ease;
+}
+.project h3 a:hover,
+.project h3 a:focus-visible,
+.post h3 a:hover,
+.post h3 a:focus-visible { background: var(--hover); }
+.project h3 a::after { content: " ↗"; color: var(--fg-faint); font-size: 0.8em; }
+.project p { color: var(--fg-dim); max-width: 46ch; }
+.project .meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin-top: 0.6rem;
+}
+
+/* ----- Writing list --------------------------------------------------- */
+.posts {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+}
+.post {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--line);
+}
+.post:last-child { border-bottom: 1px solid var(--line); }
+.post time {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--fg-faint);
+  padding-top: 0.35rem;
+}
+.post h3 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+.post p { color: var(--fg-dim); max-width: 58ch; }
+
+/* ----- Article (single post) ------------------------------------------ */
+article.entry { grid-column: 1 / -1; max-width: var(--measure); }
+article.entry .kicker {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--fg-faint);
+  margin-bottom: 1rem;
+}
+article.entry h1 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); }
+.back-link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--fg-dim);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 3.5rem;
+}
+.back-link:hover,
+.back-link:focus-visible { color: var(--fg); }
+
+/* ----- Footer / contact ----------------------------------------------- */
+footer {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid var(--line);
+  margin-top: 2rem;
+}
+footer .contact { grid-column: 1 / span 4; }
+footer h2 { margin-bottom: 1.4rem; }
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.6rem;
+  list-style: none;
+  padding: 0;
+}
+.social a {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--fg);
+  position: relative;
+}
+.social a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%; height: 1px;
+  background: var(--fg);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.18s ease;
+}
+.social a:hover::after,
+.social a:focus-visible::after { transform: scaleX(1); }
+.colophon {
+  grid-column: 1 / -1;
+  margin-top: 2.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  justify-content: space-between;
+}
+
+/* ----- Responsive: 6 → 4 columns -------------------------------------- */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .brand { grid-column: 1 / span 3; }
+  nav.menu { grid-column: 4 / span 1; }
+  .project { grid-column: span 2; }
+  footer .contact { grid-column: 1 / span 3; }
+  .post { grid-template-columns: 6.5rem 1fr; }
+}
+
+/* ----- Responsive: 4 → 2 columns, drop the letterbox ------------------ */
+@media (max-width: 640px) {
+  html { background: var(--bg); }              /* no dark surround on mobile */
+  body {
+    box-shadow: none;
+    max-width: none;
+    padding: 1.75rem 1.25rem 2.5rem;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 3rem;
+  }
+  /* let section heads wrap their "All … →" link instead of overflowing */
+  .section-head { flex-wrap: wrap; }
+  header {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding-top: 0.5rem;
+  }
+  .brand { grid-column: 1 / -1; }
+  /* nav becomes a horizontal row on mobile */
+  nav.menu {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 1.1rem;
+  }
+  nav.menu a { font-size: 1.05rem; }
+  nav.menu a.home { font-size: 1.05rem; margin-bottom: 0; }
+  nav.menu a[aria-current="page"]::after { margin-left: 0.35rem; }
+  .theme-toggle { margin-top: 0; margin-left: auto; }
+  main { grid-template-columns: 1fr; }
+  section, .projects, .posts, .section-head { grid-column: 1 / -1; }
+  .projects { grid-template-columns: 1fr; }
+  .project { grid-column: 1 / -1; }
+  .post { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.4rem 0; }
+  .post time { padding-top: 0; }
+  footer { grid-template-columns: 1fr; }
+  footer .contact { grid-column: 1 / -1; }
+}
+
+/* ----- Focus + motion ------------------------------------------------- */
+:where(a, button):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

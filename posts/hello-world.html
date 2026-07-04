@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Hello, world — Zeiyn</title>
+  <meta name="description" content="The first note on zeiyn.com — why it exists and what I plan to write about." />
+  <link rel="canonical" href="https://zeiyn.com/posts/hello-world.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="zeiyn.com" />
+  <meta property="og:title" content="Hello, world" />
+  <meta property="og:description" content="The first note on zeiyn.com." />
+  <meta property="og:url" content="https://zeiyn.com/posts/hello-world.html" />
+  <meta property="og:image" content="https://zeiyn.com/assets/og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Hello, world",
+    "url": "https://zeiyn.com/posts/hello-world.html",
+    "datePublished": "2026-07-01",
+    "author": { "@type": "Person", "name": "Zeiyn", "url": "https://zeiyn.com/about.html" }
+  }
+  </script>
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="grid">
+    <header>
+      <div class="brand">
+        <!-- TODO: update the date + title for each post -->
+        <p class="eyebrow">Writing &middot; <time datetime="2026-07-01">1 Jul 2026</time></p>
+        <h1>Hello, world</h1>
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <a class="home" href="/" aria-label="Home">&#9679;</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/writing.html" aria-current="page">Writing</a>
+        <button class="theme-toggle" type="button">Theme</button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <article class="entry">
+        <!-- TODO: replace the body below with your post -->
+        <div class="prose">
+          <p>
+            This is the first post on the site &mdash; and a template for the next ones.
+            Duplicate <code>posts/hello-world.html</code>, change the title, date, and this
+            body, then add a matching entry to <code>writing.html</code>.
+          </p>
+
+          <h3>What this section supports</h3>
+          <p>
+            Paragraphs, <a href="/writing.html">links</a>, <code>inline code</code>, lists,
+            and quotes are all styled to match the rest of the site:
+          </p>
+          <ul>
+            <li>Short, scannable list items.</li>
+            <li>Consistent spacing and a comfortable reading measure.</li>
+            <li>The same monochrome palette in light and dark.</li>
+          </ul>
+
+          <blockquote>
+            A blockquote for the occasional line worth setting apart.
+          </blockquote>
+
+          <p>
+            That&rsquo;s the whole pattern. Keep writing &mdash; the newest post goes at the top
+            of the list.
+          </p>
+        </div>
+
+        <a class="back-link" href="/writing.html">&larr; Back to all writing</a>
+      </article>
+    </main>
+
+    <footer>
+      <div class="contact">
+        <h2>Get in touch</h2>
+        <ul class="social">
+          <li><a href="mailto:you@zeiyn.com">Email</a></li>
+          <li><a href="https://github.com/" rel="me noopener">GitHub</a></li>
+          <li><a href="https://x.com/" rel="me noopener">X</a></li>
+          <li><a href="https://www.linkedin.com/" rel="me noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="colophon">
+        <span>&copy; <span data-year>2026</span> Zeiyn</span>
+        <span>Built by hand &middot; hosted on zeiyn.com</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
