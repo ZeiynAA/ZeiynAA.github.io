@@ -1,0 +1,27 @@
+title: "zeiyn.com"
+description: "The personal website of Zeiyn — projects, writing, and ways to get in touch."
+url: "https://zeiyn.com"
+author:
+  name: "Zeiyn"
+
+# Posts live at /posts/<slug>/ and are written as Markdown in _posts/
+permalink: /posts/:title/
+timezone: Etc/UTC
+markdown: kramdown
+
+# Give every post the right layout + nav highlight without repeating it each time
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      nav: writing
+      og_type: article
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github

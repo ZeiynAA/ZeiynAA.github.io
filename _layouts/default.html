@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
+  <meta property="og:site_name" content="zeiyn.com" />
+  <meta property="og:title" content="{{ page.og_title | default: page.title }}" />
+  <meta property="og:description" content="{{ page.og_description | default: page.description }}" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
+  <meta property="og:image" content="{{ '/assets/og.svg' | absolute_url }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Icons -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts (degrade to system fonts if blocked) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  {% if page.layout == 'post' %}
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | jsonify }},
+    "url": {{ page.url | absolute_url | jsonify }},
+    "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+    "author": { "@type": "Person", "name": "Zeiyn", "url": "{{ '/about.html' | absolute_url }}" }
+  }
+  </script>
+  {% elsif page.nav == 'home' %}
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "{{ '/' | absolute_url }}",
+    "name": "zeiyn.com",
+    "author": { "@type": "Person", "name": "Zeiyn", "url": "{{ '/about.html' | absolute_url }}" }
+  }
+  </script>
+  {% elsif page.nav == 'about' %}
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zeiyn",
+    "url": "{{ '/about.html' | absolute_url }}"
+  }
+  </script>
+  {% endif %}
+
+  <!-- Apply saved theme before first paint (avoids a flash) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="grid">
+    <!-- ================= HEADER / NAV (shared across pages) ============== -->
+    <header>
+      <div class="brand">
+        {% if page.layout == 'post' %}
+        <p class="eyebrow">Writing &middot; <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%-d %b %Y' }}</time></p>
+        <h1>{{ page.title }}</h1>
+        {% else %}
+        {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
+        <h1>{{ page.heading }}</h1>
+        {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
+        {% endif %}
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <a class="home" href="/"{% if page.nav == 'home' %} aria-current="page"{% endif %} aria-label="Home">&#9679;</a>
+        <a href="/about.html"{% if page.nav == 'about' %} aria-current="page"{% endif %}>About</a>
+        <a href="/projects.html"{% if page.nav == 'projects' %} aria-current="page"{% endif %}>Projects</a>
+        <a href="/writing.html"{% if page.nav == 'writing' %} aria-current="page"{% endif %}>Writing</a>
+        <button class="theme-toggle" type="button">Theme</button>
+      </nav>
+    </header>
+
+    <!-- ================= MAIN ============================================ -->
+    <main id="main">
+{{ content }}
+    </main>
+
+    <!-- ================= FOOTER (shared across pages) ==================== -->
+    <footer>
+      <div class="contact">
+        <h2>Get in touch</h2>
+        <ul class="social">
+          <li><a href="mailto:you@zeiyn.com">Email</a></li>
+          <li><a href="https://github.com/" rel="me noopener">GitHub</a></li>
+          <li><a href="https://x.com/" rel="me noopener">X</a></li>
+          <li><a href="https://www.linkedin.com/" rel="me noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="colophon">
+        <span>&copy; <span data-year>2026</span> Zeiyn</span>
+        <span>Built by hand &middot; hosted on zeiyn.com</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
