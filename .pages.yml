@@ -1,0 +1,35 @@
+# Pages CMS configuration — https://pagescms.org
+# This gives a web-based editor for the site at https://app.pagescms.org
+# (sign in with GitHub, authorize this repo, and the "Blog posts" collection appears).
+
+media:
+  input: assets/uploads          # where uploaded images are committed in the repo
+  output: /assets/uploads        # the URL they're referenced by on the site
+  extensions: [png, jpg, jpeg, gif, webp, svg]
+
+content:
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: _posts                 # matches Jekyll's posts folder
+    filename: "{year}-{month}-{day}-{fields.title}.md"
+    view:
+      fields: [title, date]      # columns shown in the post list
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: description
+        label: SEO description (search engines & social cards)
+        type: text
+      - name: summary
+        label: Summary (the blurb shown in post lists)
+        type: text
+      - name: body
+        label: Post
+        type: rich-text
