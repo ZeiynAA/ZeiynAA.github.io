@@ -19,7 +19,7 @@ Working in Strategic Enterprise B2B SaaS sales is less about getting the right d
 
 All of this being said. Let's dive into the four agreements that shape the worldview necessary for this approach.
 
-## The Four Agreements
+### The Four Agreements
 
 
 
@@ -39,9 +39,13 @@ All of this being said. Let's dive into the four agreements that shape the world
   1. Your best changes from moment to moment.
   2. Under any circumstance, simply do your best, and you will avoid self-judgement, self-abuse and regret.
 
+
+
 ## First Agreement: Be Impeccable With Your Word
 
 
+
+&nbsp;
 
 This first agreement is probably the most important. This is the cornerstone of developing and sustaining integrity. It's difficult at the beginning to always be impeccable with your word. To always be truthful to yourself, despite bad habits, despite wanting to placate and please people. 
 
