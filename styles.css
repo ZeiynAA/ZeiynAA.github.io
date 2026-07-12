@@ -263,6 +263,20 @@ h2 {
   letter-spacing: -0.02em;
   margin: 2.4rem 0 0.8rem;
 }
+.prose h1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+  margin: 2.6rem 0 0.9rem;
+}
+.prose h2 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.55rem;
+  letter-spacing: -0.02em;
+  margin: 2.6rem 0 0.8rem;
+}
 .prose a {
   color: var(--fg);
   text-decoration: underline;
@@ -272,7 +286,10 @@ h2 {
 }
 .prose a:hover { text-decoration-color: var(--fg); }
 .prose ul { margin: 0 0 1.4rem 1.1rem; }
+.prose ol { margin: 0 0 1.4rem 1.3rem; }
 .prose li { margin-bottom: 0.5rem; }
+.prose ol ol { list-style: lower-alpha; margin: 0.5rem 0 0.7rem; }
+.prose li > ol { margin-left: 0.3rem; }
 .prose blockquote {
   border-left: 2px solid var(--line);
   padding-left: 1.1rem;
