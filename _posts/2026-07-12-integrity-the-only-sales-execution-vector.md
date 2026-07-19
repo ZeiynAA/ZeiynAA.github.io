@@ -1,5 +1,5 @@
 ---
-title: Integrity - The Compunding.  Sales Execution Vector
+title: Integrity - The Compunding Sales Execution Vector
 date: 2026-07-12
 summary: Leading with the lessons from "The Four Agreements". How they shape
   your personal worldview and how the holistic acceptance of personal growth
