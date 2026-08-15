@@ -1,6 +1,6 @@
 /* Rumbo service worker — cache-first app shell so everything works offline
    (mountains, borders, planes). Bump VERSION on every deploy that changes files. */
-const VERSION = "rumbo-v2";
+const VERSION = "rumbo-v3";
 const SHELL = [
   "./",
   "./index.html",
