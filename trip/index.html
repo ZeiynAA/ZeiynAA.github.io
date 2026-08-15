@@ -231,15 +231,15 @@ const COUNTRIES = {
    Flex = a menu, not homework. Move it, swap it, skip it — zero guilt. */
 const DAYS = [
  {date:"2026-08-10",c:"mx",title:"Fly out · London → Mexico City",stay:"Overnight flight",
-  anchors:[{ico:"✈️",label:"Aeroméxico AM008 · LHR T3 22:30 → MEX T2 03:10 (+1) · PNR NBZIHQ"}],
+  anchors:[{ico:"✈️",label:"Aeroméxico AM008 · LHR T3 22:30 → MEX T2 03:10 (+1)"}],
   flex:["Sleep on the plane — you land at 3am","CPAP battery + adapters in hand luggage"]},
  {date:"2026-08-11",c:"mx",title:"Mexico City",stay:"RMS Hostal, Roma Norte",
   anchors:[],
   flex:["Easy day — Roma Norte / Condesa wander","Tacos al pastor mission","Chapultepec or Centro if energy","EARLY night — balloon pickup ~4am tomorrow","Pack tonight: tomorrow ends with a flight"]},
  {date:"2026-08-12",c:"mx",title:"Balloon at dawn · fly to Guatemala",stay:"Amura, Antigua (twin room)",
-  anchors:[{ico:"🎈",label:"~4:20am Teotihuacán balloon flight + breakfast (GYG G0VNBN49, transport included)"},
-           {ico:"✈️",label:"Volaris Y4900 · MEX T1 18:55 → GUA 20:51 · PNR OI532A — NO carry-on incl., 1 checked 25kg"},
-           {ico:"🚗",label:"Private transfer GUA airport → Antigua (GYG 83XALLY23)"}],
+  anchors:[{ico:"🎈",label:"~4:20am Teotihuacán balloon flight + breakfast (transport included)"},
+           {ico:"✈️",label:"Volaris Y4900 · MEX T1 18:55 → GUA 20:51 — NO carry-on incl., 1 checked 25kg"},
+           {ico:"🚗",label:"Private transfer GUA airport → Antigua"}],
   flex:["Nap after the balloon — you earned it","Airport by ~15:30 (they say 3h early)","Land, transfer, crash at Amura"]},
  {date:"2026-08-13",c:"gt",title:"Antigua · trek prep",stay:"Amura, Antigua",
   anchors:[],
@@ -253,21 +253,21 @@ const DAYS = [
   flex:["Recharge CPAP battery the moment you're back","Tonight is a big dorm — grab a bed near a socket, extension lead helps","Laundry drop-off","Do absolutely nothing — recovery counts as an activity"]},
  {date:"2026-08-16",c:"gt",title:"To Lake Atitlán",stay:"Hanna Suites, Panajachel — lake-view double",
   anchors:[{ico:"🚐",label:"Shuttle Antigua → Panajachel ~3h (book at any agency/hostel desk)"},
-           {ico:"🏨",label:"Hanna Suites check-in 14:00–22:00 (conf 5208421634, PIN 1125)"}],
+           {ico:"🏨",label:"Hanna Suites check-in 14:00–22:00 (conf in 🔐 vault)"}],
   flex:["Lakeside sunset — the room has a lake view for a reason","Boat hop to San Pedro / San Marcos if restless","Nice dinner — you have a private room tonight, enjoy it"]},
  {date:"2026-08-17",c:"gt",title:"Atitlán morning · back to Antigua",stay:"Lura, Antigua (4-bed dorm)",
   anchors:[{ico:"🚐",label:"Return shuttle Panajachel → Antigua (arrange; checkout 11:00)"}],
   flex:["Indian Nose sunrise if you're feeling heroic (~4am start)","Lake swim / lazy morning otherwise","Pack for the border — passport in its pocket, small USD notes"]},
  {date:"2026-08-18",c:"sv",title:"Border day → Santa Ana",stay:"Hostal Casa Verde, Santa Ana",
-  anchors:[{ico:"🛂",label:"Gekko shuttle 9:00 · Café La Parada, 6a Av Norte (booking 6653-1997) · ~6h · US$1 border fee · drops AT Casa Verde"}],
-  flex:["Podcast + snacks for the ride","Check in (conf 5522051791, PIN 2260), socket check","Pupusas for dinner","Sort tomorrow's volcano hike (guided groups go from town in the morning)"]},
+  anchors:[{ico:"🛂",label:"Gekko shuttle 9:00 · Café La Parada, 6a Av Norte · ~6h · US$1 border fee · drops AT Casa Verde"}],
+  flex:["Podcast + snacks for the ride","Check in (conf in 🔐 vault), socket check","Pupusas for dinner","Sort tomorrow's volcano hike (guided groups go from town in the morning)"]},
  {date:"2026-08-19",c:"sv",title:"Ilamatepec hike · airport room",stay:"Evolution Home, Las Flores (4 min from SAL airport)",
   anchors:[{ico:"🌋",label:"Santa Ana volcano (Ilamatepec) — morning guided hike, crater lake is absurdly green"},
-           {ico:"🚗",label:"Afternoon: transfer ~1h45 to Evolution Home nr the airport (conf 6525156677 — door code, tell them your arrival time)"}],
+           {ico:"🚗",label:"Afternoon: transfer ~1h45 to Evolution Home nr the airport (door code — conf in 🔐 vault; tell them your arrival time)"}],
   flex:["Repack for a 7:30am flight — checked bag ready tonight","Early dinner, early night"]},
  {date:"2026-08-20",c:"ni",title:"Fly to Nicaragua → León",stay:"Bigfoot Hostel, León (twin room)",
   anchors:[{ico:"📵",label:"BEFORE the flight: phone + socials sanitised for Nicaragua"},
-           {ico:"✈️",label:"Avianca AV396 · SAL 07:30 → MGA 08:25 · PNR COK7XC"},
+           {ico:"✈️",label:"Avianca AV396 · SAL 07:30 → MGA 08:25"},
            {ico:"🚗",label:"Managua → León ~2h — NO Uber in Nicaragua, arrange a transfer/taxi at the airport"}],
   flex:["León cathedral rooftop (white domes, volcano views)","Book volcano boarding for tomorrow at the Bigfoot desk — it's their thing","Balance due at Bigfoot: ~$57 (cash, or card +10%)"]},
  {date:"2026-08-21",c:"ni",title:"Volcano boarding — Cerro Negro 🛹",stay:"Bigfoot Hostel, León",
@@ -277,30 +277,30 @@ const DAYS = [
   anchors:[{ico:"🚌",label:"Travel León → Granada ~3h (arranged yesterday)"}],
   flex:["Calle La Calzada evening stroll","Masaya volcano night tour — real lava, book locally","Cathedral bell tower view","Early-ish night — 6:30am pickup tomorrow"]},
  {date:"2026-08-23",c:"cr",title:"Border marathon → La Fortuna",stay:"Ceiba Eco Hostel, La Fortuna",
-  anchors:[{ico:"🛂",label:"Gekko 6:30 pickup AT the hostel (booking 5478-6170) · Peñas Blancas: US$4 cash exit, NO hats/sunglasses at control, show onward ticket + accommodation proof"},
+  anchors:[{ico:"🛂",label:"Gekko 6:30 pickup AT the hostel · Peñas Blancas: US$4 cash exit, NO hats/sunglasses at control, show onward ticket + accommodation proof"},
            {ico:"🚐",label:"10:30 second leg from La Aguja (gate by 10:15) · via Liberia w/ lunch stop · ~9.5h total, drops AT Ceiba"}],
   flex:["Downloaded podcasts + snacks — this is the long one","Check in, socket check, crash"]},
  {date:"2026-08-24",c:"cr",title:"La Fortuna free day",stay:"Ceiba Eco Hostel, La Fortuna",
-  anchors:[{ico:"📞",label:"Río Celeste provider confirms tomorrow's pickup time today — watch WhatsApp (+506 6190 5260)"}],
+  anchors:[{ico:"📞",label:"Río Celeste provider confirms tomorrow's pickup time today — watch WhatsApp"}],
   flex:["Hot springs — El Chollín river is free","Mistico hanging bridges or Arenal 1968 trail","Sloth-spotting walk","Absolutely nothing is also a valid choice"]},
  {date:"2026-08-25",c:"cr",title:"Río Celeste tour 💙",stay:"Ceiba Eco Hostel, La Fortuna",
-  anchors:[{ico:"🎫",label:"Río Celeste full-day tour (GYG G45M6G586) — pickup at Ceiba, ~8h, lunch + park entry included, BRING PASSPORT"}],
+  anchors:[{ico:"🎫",label:"Río Celeste full-day tour — pickup at Ceiba, ~8h, lunch + park entry included, BRING PASSPORT"}],
   flex:["The blue is real — waterfall photo","Back in town: pack tonight, 8:20 pickup tomorrow"]},
  {date:"2026-08-26",c:"cr",title:"To San José → Alajuela",stay:"The Nomad Hostel, Alajuela (double)",
-  anchors:[{ico:"🚐",label:"Interbus 08:20 from Ceiba (itinerary 905463) → SJO airport area, ~5h"}],
+  anchors:[{ico:"🚐",label:"Interbus 08:20 from Ceiba → SJO airport area, ~5h"}],
   flex:["Check in near the airport, easy evening","Online check-in for tomorrow's Copa flight (copaair.com → My Trips)","Balance due: ₡14,450 cash (or PayPal +$2)"]},
  {date:"2026-08-27",c:"pa",title:"Fly to Panama City",stay:"Viajero Casco Viejo, Panama City (dbl ensuite)",
   anchors:[{ico:"✈️",label:"Copa SJO → PTY — time is on your Copa e-ticket PDF / My Trips, check it tonight if you haven't"}],
-  flex:["Casco Viejo first wander, rooftop sunset","WhatsApp Joseph (+507 6976 3171) to confirm Friday's ride to the ceremony","Get the ~$516 ceremony balance in cash sorted"]},
+  flex:["Casco Viejo first wander, rooftop sunset","WhatsApp Joseph (number in 🔐 vault) to confirm Friday's ride to the ceremony","Get the ~$516 ceremony balance in cash sorted"]},
  {date:"2026-08-28",c:"pa",title:"Ceremony day 🌿",stay:"Overnight at the ceremony (Corazón de Búfalo)",
   anchors:[{ico:"🌿",label:"Day: rapé/mambe/ambil sessions · Main Ayahuasca ceremony 10pm, runs overnight"},
-           {ico:"💵",label:"Balance ~US$516 due · Joseph offered a ride — confirmed?"}],
+           {ico:"💵",label:"Balance ~US$516 due · Joseph offered a ride — confirmed? (his number is in the 🔐 vault)"}],
   flex:["Eat light today, skip alcohol entirely","Leave valuables locked at Viajero","Heads-up: no CPAP setup tonight — plan for a night without it"]},
  {date:"2026-08-29",c:"pa",title:"Recovery · optional Peyote",stay:"Viajero Casco Viejo, Panama City",
   anchors:[],
   flex:["Optional Peyote ceremony — ONLY if it resonates and you feel ready","Gentle Casco Viejo day, ocean air on the Cinta Costera","Journal while it's fresh — Notes tab is right there","(Old skydive-at-Chame idea was never booked — only if you genuinely have the energy)"]},
  {date:"2026-08-30",c:"pa",title:"Fly home",stay:"Overnight flight → LGW Mon 16:25",
-  anchors:[{ico:"✈️",label:"Air Europa UX56 · PTY 20:25 → Madrid → LGW Mon 31 Aug 16:25 (ref XVG3CU) · 10kg cabin + 23kg checked · airport by ~17:30"}],
+  anchors:[{ico:"✈️",label:"Air Europa UX56 · PTY 20:25 → Madrid → LGW Mon 31 Aug 16:25 · 10kg cabin + 23kg checked · airport by ~17:30"}],
   flex:["Miraflores Locks in the morning if energy","Pack properly: CPAP + battery + adapters + passport","Last souvenirs","Checkout 12:00 — Viajero holds bags"]}
 ];
 
@@ -672,12 +672,11 @@ function renderInfo(){
     <div class="item"><span>🇳🇮</span><span class="txt">Bigfoot: $56.94 (card +10% fee) · Octavianos: balance at desk · border exit US$4 cash</span></div>
     <div class="item"><span>🇨🇷</span><span class="txt">Ceiba: balance at desk · Nomad: ₡14,450 (cash / PayPal +$2)</span></div>
     <div class="item"><span>🇵🇦</span><span class="txt">Viajero: $215.35 + tax · Ceremony balance: ~US$516</span></div></div>`;
-  html += `<div class="card"><h2>Booking references (offline copy)</h2>
-    <div class="item"><span>✈️</span><span class="txt">AM008 10th: NBZIHQ · Volaris 12th: OI532A · Avianca 20th: COK7XC · Copa 27th: see e-ticket · Air Europa 30th: XVG3CU</span></div>
-    <div class="item"><span>🚐</span><span class="txt">Gekko Antigua→Santa Ana: 6653-1997 · Gekko Granada→La Fortuna: 5478-6170 · Interbus: 905463</span></div>
-    <div class="item"><span>🎫</span><span class="txt">Balloon: G0VNBN49 · GUA transfer: 83XALLY23 · Río Celeste: G45M6G586 (PIN 9D+aWDZg)</span></div>
-    <div class="item"><span>🏨</span><span class="txt">Hanna: 5208421634 / PIN 1125 · Casa Verde: 5522051791 / PIN 2260 · Evolution: 6525156677 / PIN 4823</span></div>
-    <div class="item"><span>🌿</span><span class="txt">Ceremony: Joseph, Corazón de Búfalo · WhatsApp +507 6976 3171 · deposit $84 paid, ~$516 due</span></div></div>`;
+  html += `<div class="card"><h2>🔐 Booking refs &amp; PINs (encrypted)</h2><div id="vault-area">
+    <div class="mut" style="margin-bottom:8px">PNRs, confirmation numbers and PINs are encrypted inside this page. Unlock once on your phone — it stays unlocked on this device.</div>
+    <div class="btn-row"><input id="vault-in" type="password" placeholder="Passcode" autocomplete="off"
+      style="flex:2;min-width:120px;font:inherit;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);padding:12px">
+    <button class="btn-primary" onclick="tryUnlock()">Unlock</button></div></div></div>`;
   html += `<div class="card"><h2>Border-day ritual (GT→SV 18 Aug · NI→CR 23 Aug)</h2>
     <div class="item"><span>🛂</span><span class="txt">Passport in the SAME pocket every time</span></div>
     <div class="item"><span>💵</span><span class="txt">Small USD notes — $1 at GT→SV, $4 at Peñas Blancas exit</span></div>
@@ -690,6 +689,7 @@ function renderInfo(){
     <div class="item"><span>🛏</span><span class="txt">Dorm nights (Lura 15th + 17th): grab a bed near a socket early</span></div>
     <div class="item"><span>🎒</span><span class="txt">CPAP never leaves your day pack on travel days — never in checked/roof luggage</span></div></div>`;
   $("#main").innerHTML = html;
+  if(S.vaultPass) tryUnlock(S.vaultPass);
 }
 
 /* =====================  RENDER: NOTES  ===================== */
@@ -722,6 +722,38 @@ function copyNotes(){
   const txt = S.notes.map(n=>`[${n.when}] ${n.text}`).join("\n");
   navigator.clipboard && navigator.clipboard.writeText(txt).then(()=>toast("Copied."),()=>toast("Couldn't copy"));
 }
+
+
+/* =====================  VAULT (AES-256-GCM, PBKDF2 310k)  ===================== */
+
+const VAULT = {"salt":"Anhn3nZ+zFlVzk9PuiyBoA==","iv":"NS2422Stg9l385Ei","data":"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"};
+const b64d = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function unlockVault(pass){
+  const enc = new TextEncoder();
+  const km = await crypto.subtle.importKey("raw", enc.encode(pass), "PBKDF2", false, ["deriveKey"]);
+  const key = await crypto.subtle.deriveKey(
+    {name:"PBKDF2", salt:b64d(VAULT.salt), iterations:310000, hash:"SHA-256"},
+    km, {name:"AES-GCM", length:256}, false, ["decrypt"]);
+  const pt = await crypto.subtle.decrypt({name:"AES-GCM", iv:b64d(VAULT.iv)}, key, b64d(VAULT.data));
+  return new TextDecoder().decode(pt);
+}
+async function tryUnlock(saved){
+  const el = $("#vault-in");
+  const pass = (typeof saved === "string" ? saved : (el ? el.value.trim() : ""));
+  if(!pass) return;
+  try{
+    const content = await unlockVault(pass);
+    S.vaultPass = pass; save();
+    const area = $("#vault-area");
+    if(area) area.innerHTML = content +
+      `<div class="btn-row"><button onclick="lockVault()">🔒 Lock on this device</button></div>`;
+    if(typeof saved !== "string") toast("Unlocked 🔓");
+  }catch(e){
+    if(typeof saved === "string"){ delete S.vaultPass; save(); }
+    else toast("Wrong passcode");
+  }
+}
+function lockVault(){ delete S.vaultPass; save(); renderInfo(); toast("Locked. 🔒"); }
 
 /* =====================  SHELL  ===================== */
 
