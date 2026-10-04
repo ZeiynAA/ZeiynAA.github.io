@@ -4,17 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>{{ page.title }}</title>
-  <meta name="description" content="{{ page.description }}" />
+  {% capture meta_desc %}{{ page.description | default: page.summary | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}{% endcapture %}
+  <meta name="description" content="{{ meta_desc | escape }}" />
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
   <!-- Open Graph / social -->
   <meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
   <meta property="og:site_name" content="zeiyn.com" />
   <meta property="og:title" content="{{ page.og_title | default: page.title }}" />
-  <meta property="og:description" content="{{ page.og_description | default: page.description }}" />
+  <meta property="og:description" content="{{ page.og_description | default: meta_desc | escape }}" />
   <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <meta property="og:image" content="{{ '/assets/og.svg' | absolute_url }}" />
+  <meta property="og:image" content="{{ '/assets/og.png' | absolute_url }}" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Feed -->
+  {% feed_meta %}
 
   <!-- Icons -->
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
@@ -35,7 +41,8 @@
     "headline": {{ page.title | jsonify }},
     "url": {{ page.url | absolute_url | jsonify }},
     "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
-    "author": { "@type": "Person", "name": "Zeiyn", "url": "{{ '/about.html' | absolute_url }}" }
+    "description": {{ meta_desc | jsonify }},
+    "author": { "@type": "Person", "name": "Zeiyn Al Abri", "url": "{{ '/about.html' | absolute_url }}" }
   }
   </script>
   {% elsif page.nav == 'home' %}
@@ -46,7 +53,7 @@
     "@type": "WebSite",
     "url": "{{ '/' | absolute_url }}",
     "name": "zeiyn.com",
-    "author": { "@type": "Person", "name": "Zeiyn", "url": "{{ '/about.html' | absolute_url }}" }
+    "author": { "@type": "Person", "name": "Zeiyn Al Abri", "url": "{{ '/about.html' | absolute_url }}" }
   }
   </script>
   {% elsif page.nav == 'about' %}
@@ -55,7 +62,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Zeiyn",
+    "name": "Zeiyn Al Abri",
     "url": "{{ '/about.html' | absolute_url }}"
   }
   </script>

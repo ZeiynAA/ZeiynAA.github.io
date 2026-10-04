@@ -2,7 +2,7 @@ title: "zeiyn.com"
 description: "The personal website of Zeiyn — projects, writing, and ways to get in touch."
 url: "https://zeiyn.com"
 author:
-  name: "Zeiyn"
+  name: "Zeiyn Al Abri"
 
 timezone: Etc/UTC
 markdown: kramdown
@@ -26,3 +26,11 @@ exclude:
   - Gemfile.lock
   - vendor
   - .github
+
+# GitHub Pages-whitelisted plugins: /feed.xml (RSS/Atom) and /sitemap.xml.
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+feed:
+  posts_limit: 20

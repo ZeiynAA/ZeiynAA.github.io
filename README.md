@@ -1,73 +1,58 @@
 # zeiyn.com
 
-A small, self-contained personal website — plain HTML, one CSS file, and a little
-JavaScript. No build step, no dependencies. Design inspired by
-[zidhuss.tech](https://zidhuss.tech), rendered in a monochrome (black / white / grey)
-palette with light + dark themes.
+Personal site and essays — <https://zeiyn.com>. Monochrome, light + dark,
+Space Grotesk + IBM Plex Mono.
+
+Built with **Jekyll** on **GitHub Pages** (no Gemfile; Pages builds on push to `main`,
+live in ~1 minute). Posts can also be written in the browser via
+[Pages CMS](https://app.pagescms.org) — config in `.pages.yml`.
 
 ## Structure
 
 ```
-index.html         Home — greeting + previews of projects & writing
-about.html         About / bio
-projects.html      Full projects grid
-writing.html       List of writings
-posts/
-  hello-world.html Sample post (copy this to start a new one)
-styles.css         The whole design system (edit tokens at the top)
-script.js          Theme toggle + footer year (site works without JS too)
-assets/
-  favicon.svg      Monochrome "Z" mark (adapts to light/dark)
-  og.svg           Social-share preview placeholder
-CNAME              Custom domain for GitHub Pages
+_config.yml          Site settings, post defaults, plugins (jekyll-feed, jekyll-sitemap)
+_layouts/default.html  Shared <head>, header/nav, footer — edit once, applies everywhere
+_layouts/post.html     Wrapper for essays
+_posts/              Essays: YYYY-MM-DD-slug.md  →  /posts/<slug>/
+index.html           Home (front matter sets heading + lede)
+about.html           About + Now
+projects.html        Projects grid
+writing.html         All posts, newest first (auto-generated from _posts/)
+styles.css           Whole design system — tokens at the top in :root
+script.js            Theme toggle + footer year (site works without JS)
+assets/              favicon.svg, og.svg (source) → og.png (social card, 1200×630), uploads/
+robots.txt           Points crawlers at /sitemap.xml
+trip/                Retired "Rumbo" trip app — farewell page + kill-switch service
+                     worker. Keep it: it unregisters the old PWA on devices that still have it.
 ```
 
-## Preview locally
+Generated at build time: `/feed.xml` (Atom), `/sitemap.xml`.
 
-The site uses root-relative paths (`/styles.css`), so serve it from a local web
-server rather than opening the files directly:
+## Writing a post
+
+Front matter:
+
+```yaml
+---
+title: My essay
+date: 2026-10-04
+summary: One or two sentences — shown in post lists and used as the meta/social description.
+description: (optional) override for search/social if it should differ from summary
+---
+```
+
+Nested lists need **3 spaces** of indent under `1. ` items, or kramdown flattens them.
+
+## Social card
+
+Edit `assets/og.svg`, then re-render the PNG (social platforms don't read SVG):
 
 ```sh
-cd ~/zeiyn.com
-python3 -m http.server 8000
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --hide-scrollbars \
+  --window-size=1200,630 --screenshot="$PWD/assets/og.png" "file://$PWD/assets/og.svg"
 ```
-
-Then open <http://localhost:8000/>. Stop the server with `Ctrl-C`.
-
-## Make it yours
-
-All placeholder copy is marked with `<!-- TODO: ... -->` comments. The main things to
-replace:
-
-- **Name & greeting** — `index.html` (the `<h1>` and `.lede`) and every page header.
-- **Bio** — `about.html` (the `.prose` block).
-- **Projects** — the `<article class="project">` blocks in `index.html` (preview) and
-  `projects.html` (full list).
-- **Writing** — entries in `writing.html`; each real post is a file in `posts/`
-  (duplicate `hello-world.html`).
-- **Social links** — the `.social` list in every page footer (email, GitHub, X,
-  LinkedIn — add/remove as you like).
-- **Colours / spacing / fonts** — the CSS custom properties at the top of `styles.css`
-  (`:root { … }`). It's monochrome by design; set a single accent variable there if you
-  ever want one.
-
-The footer/header markup is duplicated across pages (there's no templating engine), so
-if you change one, update the others — a find-and-replace across the `.html` files does it.
 
 ## Deploy
 
-Any static host works. Three easy options:
-
-- **Netlify** — drag the `zeiyn.com` folder onto <https://app.netlify.com/drop>, then
-  point your domain at it. (Netlify ignores the `CNAME` file; set the domain in its UI.)
-- **Cloudflare Pages** — connect a Git repo or upload the folder; add `zeiyn.com` as a
-  custom domain.
-- **GitHub Pages** — push this folder to a repo, enable Pages, and the included `CNAME`
-  file wires up the `zeiyn.com` custom domain automatically.
-
-For any of them, add DNS records at your registrar pointing `zeiyn.com` at the host
-(the provider's dashboard shows the exact `A`/`CNAME` values).
-
-> Note: `assets/og.svg` is the social-share image. Some platforms (older Twitter/X,
-> some chat apps) only render raster images — if you need maximum compatibility, export
-> it to `og.png` (1200×630) and update the `og:image` URLs.
+`git push` to `main`. DNS: A records on `@` → GitHub Pages IPs, `www` CNAME →
+`zeiynaa.github.io`. Full runbook lives in the Obsidian vault ("zeiyn.com — Handover").

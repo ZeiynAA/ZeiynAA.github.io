@@ -1,7 +1,7 @@
 ---
 title: Integrity - The Compounding Sales Execution Vector
 date: 2026-07-12
-summary: Leading with the lessons from "The Four Agreements". How they shape
+summary: Leading with the lessons from Don Miguel Ruiz's "The Four Agreements". How they shape
   your personal worldview and how the holistic acceptance of personal growth
   feeds into successful sales execution.
 ---
@@ -15,25 +15,25 @@ Working in Strategic Enterprise B2B SaaS sales is about demonstrating the correc
 
 To be considered as that first choice, you must be the trusted partner. There is no other way to set up a consistent pipeline that self-feeds if your customers do not bring the deals to you on a silver platter. The only way this works consistently is for your customers to approach you as their strategic partner.
 
-All of this being said. Let's dive into the four agreements that shape the worldview necessary for this approach.
+The worldview I'm describing isn't mine. It comes from Don Miguel Ruiz's *The Four Agreements* (1997). These are his four agreements, in his words, and they shape the worldview this approach needs.
 
 ## The Four Agreements
 
 1. **Be Impeccable With Your Word**
-  1. Speak with integrity.
-  2. Say only what you mean.
-  3. Avoid using the word to speak against yourself or to gossip about others.
-  4. Use the power of your word in the direction of truth & love.
+   1. Speak with integrity.
+   2. Say only what you mean.
+   3. Avoid using the word to speak against yourself or to gossip about others.
+   4. Use the power of your word in the direction of truth & love.
 2. **Don't Take Anything Personally**
-  1. Nothing others do is because of you.
-  2. What others say and do reflects their own reality.
-  3. When you are immune to the opinions and actions of others, you won't be the victim of needless suffering.
+   1. Nothing others do is because of you.
+   2. What others say and do reflects their own reality.
+   3. When you are immune to the opinions and actions of others, you won't be the victim of needless suffering.
 3. **Don't Make Assumptions**
-  1. Find the courage to ask questions and to express what you really want.
-  2. Communicate with others as clearly as you can to avoid misunderstandings and drama.
+   1. Find the courage to ask questions and to express what you really want.
+   2. Communicate with others as clearly as you can to avoid misunderstandings and drama.
 4. **Always Do Your Best**
-  1. Your best changes from moment to moment.
-  2. Under any circumstance, do your best, and you will avoid self-judgement, self-abuse and regret.
+   1. Your best changes from moment to moment.
+   2. Under any circumstance, do your best, and you will avoid self-judgement, self-abuse and regret.
 
 ## First Agreement: Be Impeccable With Your Word
 
